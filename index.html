@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Finance Calculator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
     <script defer rel="script" src="index.js"></script>
     <link type="text/css" rel="stylesheet" href="styles.css"/>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&display=swap" rel="stylesheet">
@@ -17,14 +17,24 @@
         <div class="calc-box text-center mt-3">
             <form class="p-3">
                 <h3 class="">Loan Amount:</h3>
-                <div class="col-md-9 slide-input"></div>
+                <div class="col-md-9 slide-input">
+                    <input type="range" min="1" max="8000" value="4000" class="slider" id="slider"/>
+
+                </div>
                 <h3 class="">Expected Salary:</h3>
-                <div class="col-md-9 slide-input"></div>
+                <div class="col-md-9 slide-input">
+                    <input type="range" min="17000" max="60000" value="25000" class="slider"/>
+
+                </div>
                 <h3 class="">Percentage Paid Monthly:</h3>
-                <div class="col-md-9 slide-input"></div>
+                <div class="col-md-9 slide-input">
+                    <input type="range" min="1" max="100" value="10" class="slider"/>
+
+                </div>
                 <button type="submit" class="btn btn-primary mt-3">Calculate</button>
             </form>
         </div>
     </div>
+
 </body>
 </html>
