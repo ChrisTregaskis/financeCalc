@@ -1,2 +1,27 @@
 * { box-sizing: border-box }
 
+body {
+    background-color: #2ecc71;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+.title {
+    color: #ecf0f1;
+    font-size: 4rem;
+}
+
+.calc-box {
+    height: 400px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+}
+
+.calc-box h3 {
+    margin-top: 10px;
+}
+
+.slide-input {
+    height: 50px;
+    background-color: greenyellow;
+    margin: 0 auto
+}
