@@ -1,10 +1,14 @@
 
-var loanASlider = document.getElementById('loan-amount-slider');
-var loanAOutput = document.getElementById('loan-amount-text');
-var expectedSSlider = document.getElementById('expected-salary-slider');
-var expectedSOutput = document.getElementById('expected-salary-text');
-var ppmSlider = document.getElementById('ppm-slider');
-var ppmOutput = document.getElementById('ppm-text');
+const loanASlider = document.getElementById('loan-amount-slider');
+const loanAOutput = document.getElementById('loan-amount-text');
+const loanInputValue = loanASlider.value;
+const expectedSSlider = document.getElementById('expected-salary-slider');
+const expectedSOutput = document.getElementById('expected-salary-text');
+const expectedInputValue = expectedSSlider.value;
+const ppmSlider = document.getElementById('ppm-slider');
+const ppmOutput = document.getElementById('ppm-text');
+const ppmInputValue = ppmSlider.value;
+const calculatorSubmit = document.getElementById('calc-submit');
 
 
 //Loan amount display
@@ -24,3 +28,4 @@ ppmOutput.innerText = ppmSlider.value;
 ppmSlider.oninput = function() {
     ppmOutput.innerText = this.value;
 };
+
