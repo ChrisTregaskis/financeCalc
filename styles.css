@@ -1,4 +1,10 @@
-* { box-sizing: border-box }
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background-color: #2ecc71;
@@ -113,7 +119,34 @@ form button {
 
 .monthly-repayments {
     border-bottom: 1px solid #bdc3c7;
-    box-shadow: 0 20px 6px -6px #777;
+    box-shadow: 0 20px 12px -12px #ccc;
+}
+
+.total-sums {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 1.5px;
+}
+
+.total-item {
+    height: 80px;
+}
+
+.total-item h5,
+.total-item p {
+    text-align: center;
+}
+
+.total-item h5 {
+    margin-bottom: 10px;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
 }
 
 

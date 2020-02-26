@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="col-12 text-center mt-4">
+        <div class="col-12 text-center mt-4" id="page-top">
             <h1 class="title">Finance Calculator</h1>
         </div>
         <div class="calc-box text-center mt-3 box-effect-css">
@@ -46,14 +46,31 @@
                 <button type="submit" class="btn btn-primary mt-3 p-2">Calculate</button>
             </form>
         </div>
-        <div class="col-12 mt-3 res-box box-effect-css">
+        <div class="col-12 mt-4 res-box box-effect-css">
             <div class="p-3">
                 <div class="row monthly-repayments">
                     <h3 class="col-12 mon-repayment-value">£208.33</h3>
                     <h5 class="col-12 mon-repayment-text">Monthly Repayments</h5>
                 </div>
+                <div class="row total-sums">
+                    <div class="col-md-3 total-item">
+                        <h5>£7500</h5>
+                        <p>Total Borrowed</p>
+                    </div>
+                    <div class="col-md-3 total-item">
+                        <h5>£875</h5>
+                        <p>Total Fees<span>*</span></p>
+                    </div>
+                    <div class="col-md-3 total-item">
+                        <h5>43</h5>
+                        <p>Total Months</p>
+                    </div>
+                </div>
             </div>
         </div>
+        <footer class="footer mt-4">
+            <a class="btn btn-primary box-effect-css" href="#page-top" role="button">Back To Top</a>
+        </footer>
     </div>
 
 </body>
