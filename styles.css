@@ -129,6 +129,18 @@ form button {
     letter-spacing: 1.5px;
 }
 
+.upfront-fee {
+    border: 1px solid #e74c3c;
+    border-radius: 10px;
+    transition: color 0.6s, border 0.6s, background-color 0.6s;
+}
+
+.upfront-fee:hover {
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    transition: background-color 0.6s, color 0.6s;
+}
+
 .total-item {
     height: 80px;
 }
@@ -139,9 +151,9 @@ form button {
 }
 
 .total-item h5 {
+    padding-top: 10px;
     margin-bottom: 10px;
 }
-
 
 footer {
     display: flex;
