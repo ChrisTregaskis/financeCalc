@@ -4,11 +4,49 @@
     <meta charset="UTF-8">
     <title>Finance Calculator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
     <script defer rel="script" src="index.js"></script>
     <link type="text/css" rel="stylesheet" href="styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <div class="col-12 text-center mt-4">
+            <h1 class="title">Finance Calculator</h1>
+        </div>
+        <div class="calc-box text-center mt-3">
+            <form class="p-3">
+                <h3 class="">Loan Amount</h3>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-9">
+                        <input type="range" min="0" max="8000" value="4000" step="10" class="slider" id="loan-amount-slider"/>
+                    </div>
+                    <div class="col-1 calc-input-display" id="loanAmount">
+                        <p>£<span id="loan-amount-text"></span></p>
+                    </div>
+                </div>
+                <h3 class="">Expected Salary</h3>
+                <div class="row justify-content-md-center">
+                    <div class="col-1 calc-input-display" id="expectedSalary">
+                        <p>£<span id="expected-salary-text"></span></p>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="range" min="17000" max="80000" step="500" value="25000" class="slider" id="expected-salary-slider"/>
+                    </div>
+                </div>
+                <h3 class="">Percentage Paid Monthly</h3>
+                <div class="row justify-content-md-center">
+                    <div class="col-md-9">
+                        <input type="range" min="1" max="100" value="10" class="slider" id="ppm-slider"/>
+                    </div>
+                    <div class="col-1 calc-input-display" id="loanAmount">
+                        <p><span id="ppm-text"></span>%</p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3 p-2">Calculate</button>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
