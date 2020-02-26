@@ -68,9 +68,30 @@ form button {
     font-size: 6rem;
 }
 
+/* - - -  display results  - - - */
 
+.res-box {
+    height: 300px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+}
 
+.res-box h3,
+.res-box h5 {
+    text-align: center;
+}
 
+.res-box h3 {
+    margin-top: 10px;
+}
+
+.res-box h5 {
+    margin-bottom: 30px;
+}
+
+.monthly-repayments {
+    border-bottom: 1px solid #bdc3c7;
+}
 
 
 
