@@ -29,12 +29,26 @@ ppmSlider.oninput = function() {
     ppmOutput.innerText = this.value;
 };
 
+//Calc process
 document.getElementById('form').addEventListener('submit', function(e) {
     e.preventDefault()
     const loanInputValue = parseInt(loanASlider.value);
     const expectedInputValue = parseInt(expectedSSlider.value);
-    const ppmInputValue = parseInt(ppmSlider.value);
+    const ppmInputValue = getPercentage(parseInt(ppmSlider.value));
 
-    var sum = loanInputValue + expectedInputValue;
-    console.log(sum)
+    var check = feeRequiredCheck(loanInputValue);
+    console.log(check)
+
+    //Total Borrowed
+
+
+    //Total Fees
+
+
+    //Total months
+
 });
+
+
+
+
