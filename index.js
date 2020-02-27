@@ -32,19 +32,20 @@ document.getElementById('form').addEventListener('submit', (e) => {
     const ppmInputValue = getPercentage(parseInt(ppmSlider.value));
 
     //Monthly repayments
-    var monthlyRepayments = generateMRepayment(expectedInputValue, ppmInputValue);
-
+    var monthlyRepayments = parseFloat(generateMRepayment(expectedInputValue, ppmInputValue)).toFixed(2);
+    document.getElementById('monthly-repayment').innerText = '£' + monthlyRepayments;
     //Total borrowed
     var totalLoanRequested = feeRequiredCheck(loanInputValue);
-
+    document.getElementById('total-borrowed').innerText = '£' + totalLoanRequested;
     //Upfront admin fee
     var upFrontAdminFee = upFrontFee(totalLoanRequested);
-
+    document.getElementById('upfront-admin-fee').innerText = '£' + upFrontAdminFee;
     //Total fees
-    var totalFee = generateTotalFee(loanInputValue, upFrontAdminFee);
-
+    var totalFee = parseFloat(generateTotalFee(loanInputValue, upFrontAdminFee)).toFixed(0);
+    document.getElementById('total-fees').innerText = '£' + totalFee;
     //Total months
     var totalMonths = generateTotalMonths(totalLoanRequested, monthlyRepayments);
+    document.getElementById('total-months').innerText = totalMonths;
 
 });
 
