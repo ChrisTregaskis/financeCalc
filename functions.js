@@ -78,7 +78,7 @@ function generateSchedule(monthlyPayment, requiredLoanRequested) {
         scheduleObject.schedule.push(monthlyPaymentFigure)
 
     }
-    console.log(scheduleObject)
+    return scheduleObject
 }
 
 

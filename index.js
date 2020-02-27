@@ -47,7 +47,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
     var totalMonths = generateTotalMonths(totalLoanRequested, monthlyRepayments);
     document.getElementById('total-months').innerText = totalMonths;
 
-    const schedule = generateSchedule(monthlyRepayments, totalLoanRequested);
+    let schedule = generateSchedule(monthlyRepayments, totalLoanRequested);
 
     console.log(schedule)
 });
