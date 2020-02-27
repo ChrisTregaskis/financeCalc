@@ -45,3 +45,45 @@ function generateTotalMonths(totalLoanRequested, monthlyRepayment) {
     return Math.ceil(totalLoanRequested / monthlyRepayment)
 }
 
+
+function generateSchedule(monthlyPayment, requiredLoanRequested) {
+    let month = 0;
+    let paidThisMonth;
+    while (requiredLoanRequested > 0) {
+        if (requiredLoanRequested < monthlyPayment) {
+            paidThisMonth = requiredLoanRequested;
+            month++;
+            requiredLoanRequested = 0
+        } else {
+            requiredLoanRequested = requiredLoanRequested - monthlyPayment;
+            month++;
+            paidThisMonth = monthlyPayment;
+
+        }
+        console.log(month);
+        console.log(parseFloat(requiredLoanRequested).toFixed(2));
+        console.log(parseFloat(paidThisMonth).toFixed(2))
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
