@@ -47,12 +47,12 @@ document.getElementById('form').addEventListener('submit', (e) => {
     var totalMonths = generateTotalMonths(totalLoanRequested, monthlyRepayments);
     document.getElementById('total-months').innerText = totalMonths;
 
+    generateSchedule(monthlyRepayments, totalLoanRequested);
 });
 
 
-var month = 0;
-var mP = 208.88;
-var rLA = 9000;
+
+
 
 var schedule = {
     paymentSchedule: [
@@ -69,21 +69,4 @@ var schedule = {
     ]
 };
 
-function generateSchedule() {
-    let paidThisMonth;
-    while (rLA > 0) {
-        if (rLA < mP) {
-            paidThisMonth = rLA;
-            month++;
-            rLA = 0
-        } else {
-            rLA = rLA - mP;
-            month++;
-            paidThisMonth = mP;
 
-        }
-        console.log(month);
-        console.log(parseFloat(rLA).toFixed(2));
-        console.log(paidThisMonth)
-    }
-}
