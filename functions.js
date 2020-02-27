@@ -45,11 +45,22 @@ function generateTotalMonths(totalLoanRequested, monthlyRepayment) {
     return Math.ceil(totalLoanRequested / monthlyRepayment)
 }
 
-
+//Generate schedule from dynamic input and fill obj arr
 function generateSchedule(monthlyPayment, requiredLoanRequested) {
     let month = 0;
     let paidThisMonth;
+    let scheduleObject = {
+        schedule: []
+    };
+
     while (requiredLoanRequested > 0) {
+
+        let monthlyPaymentFigure = {
+            "month": "",
+            "balance": "",
+            "paid-this-month": ""
+        };
+
         if (requiredLoanRequested < monthlyPayment) {
             paidThisMonth = requiredLoanRequested;
             month++;
@@ -58,12 +69,16 @@ function generateSchedule(monthlyPayment, requiredLoanRequested) {
             requiredLoanRequested = requiredLoanRequested - monthlyPayment;
             month++;
             paidThisMonth = monthlyPayment;
-
         }
-        console.log(month);
-        console.log(parseFloat(requiredLoanRequested).toFixed(2));
-        console.log(parseFloat(paidThisMonth).toFixed(2))
+
+        //Generate monthly payment figure object then push into schedule obj arr
+        monthlyPaymentFigure.month = month;
+        monthlyPaymentFigure.balance = parseFloat(requiredLoanRequested).toFixed(2);
+        monthlyPaymentFigure["paid-this-month"] = parseFloat(paidThisMonth).toFixed(2);
+        scheduleObject.schedule.push(monthlyPaymentFigure)
+
     }
+    console.log(scheduleObject)
 }
 
 
