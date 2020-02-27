@@ -50,5 +50,40 @@ document.getElementById('form').addEventListener('submit', (e) => {
 });
 
 
+var month = 0;
+var mP = 208.88;
+var rLA = 9000;
 
+var schedule = {
+    paymentSchedule: [
+        {
+            'month': 1,
+            'balance': 8791.12,
+            'month-payment': 208.88
+        },
+        {
+            'month': 2,
+            'balance': 8582.24,
+            'month-payment': 208.88
+        }
+    ]
+};
 
+function generateSchedule() {
+    let paidThisMonth;
+    while (rLA > 0) {
+        if (rLA < mP) {
+            paidThisMonth = rLA;
+            month++;
+            rLA = 0
+        } else {
+            rLA = rLA - mP;
+            month++;
+            paidThisMonth = mP;
+
+        }
+        console.log(month);
+        console.log(parseFloat(rLA).toFixed(2));
+        console.log(paidThisMonth)
+    }
+}
