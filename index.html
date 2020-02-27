@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Finance Calculator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<!--    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+    <script defer src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <script defer rel="script" src="functions.js"></script>
     <script defer rel="script" src="index.js"></script>
     <link type="text/css" rel="stylesheet" href="styles.css"/>
@@ -17,7 +17,7 @@
         </div>
         <div class="calc-box text-center mt-3 box-effect-css">
             <form id="form" class="p-3">
-                <h3 class="">Loan Amount</h3>
+                <h3>Loan Amount</h3>
                 <div class="row justify-content-md-center">
                     <div class="col-md-9">
                         <input type="range" min="100" max="8000" value="4000" step="10" class="slider" id="loan-amount-slider"/>
@@ -26,7 +26,7 @@
                         <p>£<span id="loan-amount-text"></span></p>
                     </div>
                 </div>
-                <h3 class="">Expected Salary</h3>
+                <h3>Expected Salary</h3>
                 <div class="row justify-content-md-center">
                     <div class="col-1 calc-input-display" id="expectedSalary">
                         <p>£<span id="expected-salary-text"></span></p>
@@ -35,7 +35,7 @@
                         <input type="range" min="17000" max="80000" step="500" value="25000" class="slider" id="expected-salary-slider"/>
                     </div>
                 </div>
-                <h3 class="">Percentage Paid Monthly</h3>
+                <h3>Percentage Paid Monthly</h3>
                 <div class="row justify-content-md-center">
                     <div class="col-md-9">
                         <input type="range" min="1" max="100" value="10" class="slider" id="ppm-slider"/>
@@ -48,7 +48,7 @@
             </form>
         </div>
         <div class="col-12 mt-4 res-box box-effect-css">
-            <div class="p-3">
+            <div class="res-overview">
                 <div class="row monthly-repayments">
                     <h3 class="col-12 mon-repayment-value"><span id="monthly-repayment">&zwnj;</span></h3>
                     <h5 class="col-12 mon-repayment-text">Monthly Repayments</h5>
@@ -72,6 +72,16 @@
                     </div>
                 </div>
             </div>
+            <table class="table table-striped table-hover">
+                <thead class="hidden" id="table-headers">
+                    <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">Balance</th>
+                        <th scope="col">Paid This Month</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
         </div>
         <footer class="footer mt-4">
             <a class="btn btn-primary box-effect-css" href="#page-top" role="button">Back To Top</a>

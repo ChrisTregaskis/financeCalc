@@ -14,6 +14,7 @@ body {
 .title {
     color: #ecf0f1;
     font-size: 4rem;
+    letter-spacing: 2px;
 }
 
 .box-effect-css {
@@ -46,6 +47,7 @@ body {
 
 .calc-box h3 {
     margin-top: 10px;
+    letter-spacing: 1px;
 }
 
 /* - - -  slider inputs  - - - */
@@ -106,9 +108,13 @@ form button {
 /* - - -  display results  - - - */
 
 .res-box {
-    height: 300px;
     background-color: #ecf0f1;
     border-radius: 10px;
+    padding-bottom: 30px;
+}
+
+.res-overview {
+    padding: 20px 20px 40px 20px;
 }
 
 .res-box h3,
@@ -162,15 +168,27 @@ form button {
     margin-bottom: 10px;
 }
 
+.table th,
+.table td {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.table {
+    margin: 30px auto auto;
+    width: 90%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
 footer {
     display: flex;
     justify-content: center;
     padding-bottom: 20px;
 }
-
-
-
-
 
 
 

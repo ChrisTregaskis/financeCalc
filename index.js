@@ -23,9 +23,10 @@ ppmSlider.oninput = function() {
     ppmOutput.innerText = this.value;
 };
 
-//Calc process
+//Calc & display process on submit
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault()
+    document.getElementById('table-headers').classList.remove('hidden')
     //Grab inputs from range slider
     const loanInputValue = parseInt(loanASlider.value);
     const expectedInputValue = parseInt(expectedSSlider.value);
@@ -50,6 +51,19 @@ document.getElementById('form').addEventListener('submit', (e) => {
     let schedule = generateSchedule(monthlyRepayments, totalLoanRequested);
 
     console.log(schedule)
+
+    //Fetch handlebars. Refactor into async await function if have time
+    //Display schedule on FE
+    fetch('hand.hbs')
+        .then((handData) => {
+            return handData.text()
+        })
+        .then((handData) => {
+            let hbsTemplate = Handlebars.compile(handData);
+
+            var displaySchedule = hbsTemplate(schedule)
+            document.getElementById('tbody').innerHTML = displaySchedule
+        })
 });
 
 
