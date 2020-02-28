@@ -40,7 +40,7 @@ body {
 }
 
 .calc-box {
-    height: 400px;
+    height: auto;
     background-color: #ecf0f1;
     border-radius: 10px;
 }
@@ -103,6 +103,8 @@ body {
 
 form button {
     font-size: 6rem;
+    box-shadow: 0 30px 42px -12px #222;
+    margin: 40px auto;
 }
 
 /* - - -  display results  - - - */
@@ -191,10 +193,26 @@ footer {
 }
 
 
+/* - - -  media queries  - - - */
 
+.expectedSalaryMobile {
+    display: none;
+}
 
+@media screen and (max-width: 767px) {
+    .calc-input-display {
+        width: 130px;
+        margin: 20px auto;
+    }
 
+    .expectedSalaryMobile {
+        display: flex;
+    }
 
+    .expectedSalaryDesktop {
+        display: none;
+    }
+}
 
 
 
