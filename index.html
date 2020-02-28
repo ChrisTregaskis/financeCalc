@@ -5,6 +5,7 @@
     <title>Finance Calculator</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script defer rel="script" src="jQuery.js"></script>
     <script defer rel="script" src="functions.js"></script>
     <script defer rel="script" src="index.js"></script>
     <link type="text/css" rel="stylesheet" href="styles.css"/>
@@ -31,12 +32,15 @@
                     <div class="col-md-2 calc-input-display expectedSalaryDesktop" id="expectedSalary">
                         <p>£<span id="expected-salary-text"></span></p>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 expectedSalaryDesktop">
                         <input type="range" min="17000" max="80000" step="500" value="25000" class="slider" id="expected-salary-slider"/>
                     </div>
-                </div>
-                <div class="col-md-2 calc-input-display expectedSalaryMobile" id="expectedSalaryMobile">
-                    <p>£<span id="expected-salary-text-mobile"></span></p>
+                    <div class="col-md-9 expectedSalaryMobile">
+                        <input type="range" min="17000" max="80000" step="500" value="25000" class="slider" id="expected-salary-slider-mobile"/>
+                    </div>
+                    <div class="col-md-2 calc-input-display expectedSalaryMobile" id="expectedSalaryMobile">
+                        <p>£<span id="expected-salary-text-mobile"></span></p>
+                    </div>
                 </div>
                 <h3>Percentage Paid Monthly</h3>
                 <div class="row justify-content-md-center">
