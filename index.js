@@ -7,6 +7,55 @@ const expectedSOutputMobile = document.getElementById('expected-salary-text-mobi
 const ppmSlider = document.getElementById('ppm-slider');
 const ppmOutput = document.getElementById('ppm-text');
 
+//Call hover effect on display when hovering/using ranger slider
+$(document).ready(function() {
+    let loanAmount = $('#loanAmount');
+    let expectedSalary = $('#expectedSalary');
+    let expectedSalaryMobile = $('#expectedSalaryMobile');
+    let percentagePaidMonthly = $('#percentagePaidMonthly');
+
+    $('#loan-amount-slider').hover(function(){
+        loanAmount.css('background-color', '#3498db');
+        loanAmount.css('color', '#ecf0f1');
+        loanAmount.css('transition', 'color 0.4s, background-color 0.4s');
+    }, function () {
+        loanAmount.css('background-color', 'transparent');
+        loanAmount.css('color', '#000');
+        loanAmount.css('transition', 'color 0.4s, background-color 0.4s');
+    });
+
+    $('#expected-salary-slider').hover(function(){
+        expectedSalary.css('background-color', '#3498db');
+        expectedSalary.css('color', '#ecf0f1');
+        expectedSalary.css('transition', 'color 0.4s, background-color 0.4s');
+    }, function () {
+        expectedSalary.css('background-color', 'transparent');
+        expectedSalary.css('color', '#000');
+        expectedSalary.css('transition', 'color 0.4s, background-color 0.4s');
+    });
+
+    $('#expected-salary-slider-mobile').hover(function(){
+        expectedSalaryMobile.css('background-color', '#3498db');
+        expectedSalaryMobile.css('color', '#ecf0f1');
+        expectedSalaryMobile.css('transition', 'color 0.6s, background-color 0.6s');
+    }, function () {
+        expectedSalaryMobile.css('background-color', 'transparent');
+        expectedSalaryMobile.css('color', '#000');
+        expectedSalaryMobile.css('transition', 'color 0.6s, background-color 0.6s');
+    });
+
+    $('#ppm-slider').hover(function(){
+        percentagePaidMonthly.css('background-color', '#3498db');
+        percentagePaidMonthly.css('color', '#ecf0f1');
+        percentagePaidMonthly.css('transition', 'color 0.4s, background-color 0.4s');
+    }, function () {
+        percentagePaidMonthly.css('background-color', 'transparent');
+        percentagePaidMonthly.css('color', '#000');
+        percentagePaidMonthly.css('transition', 'color 0.4s, background-color 0.4s');
+    });
+
+});
+
 //Loan amount display
 loanAOutput.innerText = loanASlider.value;
 loanASlider.oninput = function() {
@@ -34,7 +83,6 @@ ppmSlider.oninput = function() {
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault()
     document.getElementById('table-headers').classList.remove('hidden')
-    //Grab inputs from range slider
     const loanInputValue = parseInt(loanASlider.value);
     const expectedInputValue = parseInt(expectedSSlider.value);
     const ppmInputValue = getPercentage(parseInt(ppmSlider.value));
@@ -57,10 +105,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
 
     let schedule = generateSchedule(monthlyRepayments, totalLoanRequested);
 
-    console.log(schedule)
-
-    //Fetch handlebars. Refactor into async await function if have time
-    //Display schedule on FE
+    //Fetch handlebars. Display schedule on FE
     fetch('hand.hbs')
         .then((handData) => {
             return handData.text()
