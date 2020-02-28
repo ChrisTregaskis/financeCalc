@@ -2,6 +2,7 @@ const loanASlider = document.getElementById('loan-amount-slider');
 const loanAOutput = document.getElementById('loan-amount-text');
 const expectedSSlider = document.getElementById('expected-salary-slider');
 const expectedSOutput = document.getElementById('expected-salary-text');
+const expectedSSliderMobile = document.getElementById('expected-salary-slider-mobile');
 const expectedSOutputMobile = document.getElementById('expected-salary-text-mobile');
 const ppmSlider = document.getElementById('ppm-slider');
 const ppmOutput = document.getElementById('ppm-text');
@@ -18,8 +19,8 @@ expectedSSlider.oninput = function() {
     expectedSOutput.innerText = this.value;
 };
 
-expectedSOutputMobile.innerText = expectedSSlider.value;
-expectedSSlider.oninput = function() {
+expectedSOutputMobile.innerText = expectedSSliderMobile.value;
+expectedSSliderMobile.oninput = function() {
     expectedSOutputMobile.innerText = this.value;
 };
 
