@@ -22,29 +22,32 @@
                     <div class="col-md-9">
                         <input type="range" min="100" max="8000" value="4000" step="10" class="slider" id="loan-amount-slider"/>
                     </div>
-                    <div class="col-1 calc-input-display" id="loanAmount">
+                    <div class="col-md-2 calc-input-display" id="loanAmount">
                         <p>£<span id="loan-amount-text"></span></p>
                     </div>
                 </div>
                 <h3>Expected Salary</h3>
                 <div class="row justify-content-md-center">
-                    <div class="col-1 calc-input-display" id="expectedSalary">
+                    <div class="col-md-2 calc-input-display expectedSalaryDesktop" id="expectedSalary">
                         <p>£<span id="expected-salary-text"></span></p>
                     </div>
                     <div class="col-md-9">
                         <input type="range" min="17000" max="80000" step="500" value="25000" class="slider" id="expected-salary-slider"/>
                     </div>
                 </div>
+                <div class="col-md-2 calc-input-display expectedSalaryMobile" id="expectedSalaryMobile">
+                    <p>£<span id="expected-salary-text-mobile"></span></p>
+                </div>
                 <h3>Percentage Paid Monthly</h3>
                 <div class="row justify-content-md-center">
                     <div class="col-md-9">
                         <input type="range" min="1" max="100" value="10" class="slider" id="ppm-slider"/>
                     </div>
-                    <div class="col-1 calc-input-display" id="loanAmount">
+                    <div class="col-md-2 calc-input-display" id="percentagePaidMonthly">
                         <p><span id="ppm-text"></span>%</p>
                     </div>
                 </div>
-                <button id="calc-submit" type="submit" class="btn btn-primary mt-3 p-2">Calculate</button>
+                <button id="calc-submit" type="submit" class="btn btn-primary p-2">Calculate</button>
             </form>
         </div>
         <div class="col-12 mt-4 res-box box-effect-css">
