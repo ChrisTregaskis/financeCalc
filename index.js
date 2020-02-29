@@ -7,7 +7,6 @@ const expectedSOutputMobile = document.getElementById('expected-salary-text-mobi
 const ppmSlider = document.getElementById('ppm-slider');
 const ppmOutput = document.getElementById('ppm-text');
 
-//Call hover effect on display when hovering/using ranger slider
 $(document).ready(function() {
     let loanAmount = $('#loanAmount');
     let expectedSalary = $('#expectedSalary');
@@ -56,13 +55,12 @@ $(document).ready(function() {
 
 });
 
-//Loan amount display
+//Calc Box Displays
 loanAOutput.innerText = loanASlider.value;
 loanASlider.oninput = function() {
     loanAOutput.innerText = this.value;
 };
 
-//Expected salary display desk & mobile
 expectedSOutput.innerText = expectedSSlider.value;
 expectedSSlider.oninput = function() {
     expectedSOutput.innerText = this.value;
@@ -73,39 +71,46 @@ expectedSSliderMobile.oninput = function() {
     expectedSOutputMobile.innerText = this.value;
 };
 
-//Percentage paid per-month display
 ppmOutput.innerText = ppmSlider.value;
 ppmSlider.oninput = function() {
     ppmOutput.innerText = this.value;
 };
 
-//Calc & display process on submit
+//Calc & display results process on submit
 document.getElementById('form').addEventListener('submit', (e) => {
-    e.preventDefault()
-    document.getElementById('table-headers').classList.remove('hidden')
+    e.preventDefault();
+    document.getElementById('table-headers').classList.remove('hidden');
+    document.getElementById('table-headers-mobile').classList.remove('hidden');
     const loanInputValue = parseInt(loanASlider.value);
     const expectedInputValue = parseInt(expectedSSlider.value);
+    const expectedInputValueMobile = parseInt(expectedSSliderMobile.value);
     const ppmInputValue = getPercentage(parseInt(ppmSlider.value));
 
-    //Monthly repayments
-    var monthlyRepayments = parseFloat(generateMRepayment(expectedInputValue, ppmInputValue)).toFixed(2);
+    let monthlyRepayments = parseFloat(generateMRepayment(expectedInputValue, ppmInputValue)).toFixed(2);
     document.getElementById('monthly-repayment').innerText = '£' + monthlyRepayments;
-    //Total borrowed
-    var totalLoanRequested = feeRequiredCheck(loanInputValue);
+
+    let monthlyRepaymentsMobile = parseFloat(generateMRepayment(expectedInputValueMobile, ppmInputValue)).toFixed(2);
+    document.getElementById('monthly-repayment-mobile').innerText = '£' + monthlyRepaymentsMobile;
+
+    let totalLoanRequested = feeRequiredCheck(loanInputValue);
     document.getElementById('total-borrowed').innerText = '£' + totalLoanRequested;
-    //Upfront admin fee
-    var upFrontAdminFee = upFrontFee(totalLoanRequested);
+
+    let upFrontAdminFee = upFrontFee(totalLoanRequested);
     document.getElementById('upfront-admin-fee').innerText = '£' + upFrontAdminFee;
-    //Total fees
-    var totalFee = parseFloat(generateTotalFee(loanInputValue, upFrontAdminFee)).toFixed(0);
+
+    let totalFee = parseFloat(generateTotalFee(loanInputValue, upFrontAdminFee)).toFixed(0);
     document.getElementById('total-fees').innerText = '£' + totalFee;
-    //Total months
-    var totalMonths = generateTotalMonths(totalLoanRequested, monthlyRepayments);
+
+    let totalMonths = generateTotalMonths(totalLoanRequested, monthlyRepayments);
     document.getElementById('total-months').innerText = totalMonths;
+
+    let totalMonthsMobile = generateTotalMonths(totalLoanRequested, monthlyRepaymentsMobile);
+    document.getElementById('total-months-mobile').innerText = totalMonthsMobile;
 
     let schedule = generateSchedule(monthlyRepayments, totalLoanRequested);
 
-    //Fetch handlebars. Display schedule on FE
+    let scheduleMobile = generateSchedule(monthlyRepaymentsMobile, totalLoanRequested);
+
     fetch('hand.hbs')
         .then((handData) => {
             return handData.text()
@@ -113,8 +118,11 @@ document.getElementById('form').addEventListener('submit', (e) => {
         .then((handData) => {
             let hbsTemplate = Handlebars.compile(handData);
 
-            var displaySchedule = hbsTemplate(schedule)
-            document.getElementById('tbody').innerHTML = displaySchedule
+            let displaySchedule = hbsTemplate(schedule);
+            document.getElementById('tbody').innerHTML = displaySchedule;
+
+            let displaySceduleMobile = hbsTemplate(scheduleMobile);
+            document.getElementById('tbody-mobile').innerHTML = displaySceduleMobile;
         })
 });
 

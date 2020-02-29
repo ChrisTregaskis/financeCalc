@@ -42,7 +42,7 @@
                         <p>£<span id="expected-salary-text-mobile"></span></p>
                     </div>
                 </div>
-                <h3>Percentage Paid Monthly</h3>
+                <h3>Percentage Of Monthly Income</h3>
                 <div class="row justify-content-md-center">
                     <div class="col-md-9">
                         <input type="range" min="1" max="100" value="10" class="slider" id="ppm-slider"/>
@@ -56,8 +56,12 @@
         </div>
         <div class="col-12 mt-4 res-box box-effect-css">
             <div class="res-overview">
-                <div class="row monthly-repayments">
+                <div class="row monthly-repayments monthlyRepaymentsDesktop">
                     <h3 class="col-12 mon-repayment-value"><span id="monthly-repayment">&zwnj;</span></h3>
+                    <h5 class="col-12 mon-repayment-text">Monthly Repayments</h5>
+                </div>
+                <div class="row monthly-repayments monthlyRepaymentsMobile">
+                    <h3 class="col-12 mon-repayment-value"><span id="monthly-repayment-mobile">&zwnj;</span></h3>
                     <h5 class="col-12 mon-repayment-text">Monthly Repayments</h5>
                 </div>
                 <div class="row total-sums">
@@ -67,19 +71,23 @@
                     </div>
                     <div class="col-md-3 total-item upfront-fee">
                         <h5 id="upfront-admin-fee">&zwnj;</h5>
-                        <p>Upfront Admin Fee</p>
+                        <p>Upfront Fee</p>
                     </div>
                     <div class="col-md-3 total-item">
                         <h5 id="total-fees">&zwnj;</h5>
-                        <p>Total Fees<span> *</span></p>
+                        <p>Total Fees</p>
                     </div>
-                    <div class="col-md-3 total-item">
+                    <div class="col-md-3 total-item totalMonthsDesktop">
                         <h5 id="total-months">&zwnj;</h5>
+                        <p>Total Months</p>
+                    </div>
+                    <div class="col-md-3 total-item totalMonthsMobile">
+                        <h5 id="total-months-mobile">&zwnj;</h5>
                         <p>Total Months</p>
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover tableDesktop">
                 <thead class="hidden" id="table-headers">
                     <tr>
                         <th scope="col">Month</th>
@@ -88,6 +96,16 @@
                     </tr>
                 </thead>
                 <tbody id="tbody"></tbody>
+            </table>
+            <table class="table table-striped table-hover tableMobile">
+                <thead class="hidden" id="table-headers-mobile">
+                <tr>
+                    <th scope="col">Month</th>
+                    <th scope="col">Balance</th>
+                    <th scope="col">Paid This Month</th>
+                </tr>
+                </thead>
+                <tbody id="tbody-mobile"></tbody>
             </table>
         </div>
         <footer class="footer mt-4">

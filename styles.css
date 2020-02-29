@@ -197,7 +197,10 @@ footer {
 
 /* - - -  media queries  - - - */
 
-.expectedSalaryMobile {
+.expectedSalaryMobile,
+.monthlyRepaymentsMobile,
+.totalMonthsMobile,
+.tableMobile {
     display: none;
 }
 
@@ -207,11 +210,20 @@ footer {
         margin: 20px auto;
     }
 
-    .expectedSalaryMobile {
+    .expectedSalaryMobile,
+    .monthlyRepaymentsMobile {
         display: flex;
     }
 
-    .expectedSalaryDesktop {
+    .totalMonthsMobile,
+    .tableMobile {
+        display: table;
+    }
+
+    .expectedSalaryDesktop,
+    .monthlyRepaymentsDesktop,
+    .totalMonthsDesktop,
+    .tableDesktop {
         display: none;
     }
 }
