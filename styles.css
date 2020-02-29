@@ -190,13 +190,7 @@ form button {
     padding-bottom: 30px;
     height: 0;
     opacity: 0;
-    overflow: hidden;
-    margin: 0
-}
-
-.info-box h3,
-.close-box-icon {
-    display: inline-block;
+    margin: 0;
 }
 
 .close-box-icon {
