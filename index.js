@@ -80,6 +80,7 @@ ppmSlider.oninput = function() {
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
     document.getElementById('table-headers').classList.remove('hidden');
+    document.getElementById('table-headers-mobile').classList.remove('hidden');
     const loanInputValue = parseInt(loanASlider.value);
     const expectedInputValue = parseInt(expectedSSlider.value);
     const expectedInputValueMobile = parseInt(expectedSSliderMobile.value);
@@ -108,6 +109,8 @@ document.getElementById('form').addEventListener('submit', (e) => {
 
     let schedule = generateSchedule(monthlyRepayments, totalLoanRequested);
 
+    let scheduleMobile = generateSchedule(monthlyRepaymentsMobile, totalLoanRequested);
+
     fetch('hand.hbs')
         .then((handData) => {
             return handData.text()
@@ -116,7 +119,10 @@ document.getElementById('form').addEventListener('submit', (e) => {
             let hbsTemplate = Handlebars.compile(handData);
 
             let displaySchedule = hbsTemplate(schedule);
-            document.getElementById('tbody').innerHTML = displaySchedule
+            document.getElementById('tbody').innerHTML = displaySchedule;
+
+            let displaySceduleMobile = hbsTemplate(scheduleMobile);
+            document.getElementById('tbody-mobile').innerHTML = displaySceduleMobile;
         })
 });
 
