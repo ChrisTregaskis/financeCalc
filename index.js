@@ -89,7 +89,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
     document.getElementById('monthly-repayment').innerText = '£' + monthlyRepayments;
 
     let monthlyRepaymentsMobile = parseFloat(generateMRepayment(expectedInputValueMobile, ppmInputValue)).toFixed(2);
-    console.log(monthlyRepaymentsMobile);
+    document.getElementById('monthly-repayment-mobile').innerText = '£' + monthlyRepaymentsMobile;
 
     let totalLoanRequested = feeRequiredCheck(loanInputValue);
     document.getElementById('total-borrowed').innerText = '£' + totalLoanRequested;
@@ -104,7 +104,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
     document.getElementById('total-months').innerText = totalMonths;
 
     let totalMonthsMobile = generateTotalMonths(totalLoanRequested, monthlyRepaymentsMobile);
-    console.log(totalMonthsMobile);
+    document.getElementById('total-months-mobile').innerText = totalMonthsMobile;
 
     let schedule = generateSchedule(monthlyRepayments, totalLoanRequested);
 
