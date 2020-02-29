@@ -199,7 +199,8 @@ footer {
 
 .expectedSalaryMobile,
 .monthlyRepaymentsMobile,
-.totalMonthsMobile {
+.totalMonthsMobile,
+.tableMobile {
     display: none;
 }
 
@@ -214,13 +215,15 @@ footer {
         display: flex;
     }
 
-    .totalMonthsMobile {
+    .totalMonthsMobile,
+    .tableMobile {
         display: block;
     }
 
     .expectedSalaryDesktop,
     .monthlyRepaymentsDesktop,
-    .totalMonthsDesktop {
+    .totalMonthsDesktop,
+    .tableDesktop {
         display: none;
     }
 }
