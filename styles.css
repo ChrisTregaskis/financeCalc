@@ -70,6 +70,7 @@ body {
     outline: none;
     opacity: 0.7;
     transition: opacity .2s;
+    cursor: pointer;
 }
 
 .slider:hover {
@@ -150,6 +151,7 @@ form button {
     border: 1px solid #e74c3c;
     border-radius: 10px;
     transition: color 0.6s, border 0.6s, background-color 0.6s;
+    cursor: pointer;
 }
 
 .upfront-fee:hover {
@@ -179,6 +181,49 @@ form button {
 
 .hidden {
     display: none;
+}
+
+.info-box {
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    border-radius: 10px;
+    padding-bottom: 30px;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+}
+
+.close-box-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+@keyframes rotateCloseBtn {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(-180deg) }
+}
+
+@keyframes rotateCloseBtnActive {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(180deg) }
+}
+
+ion-icon {
+    color: #34495e;
+    font-size: 2.5rem;
+    cursor: pointer;
+    margin-right: 20px;
+    animation: rotateCloseBtn 1s;
+    transform-origin: center;
+    transition: color 1s;
+}
+
+ion-icon:hover {
+    animation: rotateCloseBtnActive 1s;
+    transform-origin: center;
+    color: #ecf0f1;
+    transition: color 1s;
 }
 
 .table {

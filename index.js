@@ -12,6 +12,8 @@ $(document).ready(function() {
     let expectedSalary = $('#expectedSalary');
     let expectedSalaryMobile = $('#expectedSalaryMobile');
     let percentagePaidMonthly = $('#percentagePaidMonthly');
+    let infoBoxScrollHeight = document.getElementById('info-box').scrollHeight;
+    let infoBox = $('.info-box');
 
     $('#loan-amount-slider').hover(function(){
         loanAmount.css('background-color', '#3498db');
@@ -51,6 +53,16 @@ $(document).ready(function() {
         percentagePaidMonthly.css('background-color', 'transparent');
         percentagePaidMonthly.css('color', '#000');
         percentagePaidMonthly.css('transition', 'color 0.4s, background-color 0.4s');
+    });
+
+    $('.upfront-fee').click(function() {
+        infoBox.animate({height: infoBoxScrollHeight, opacity: '1'}, 500);
+        infoBox.animate({margin: '30px auto'}, 500);
+    });
+
+    $('#close-box-icon').click(function () {
+        infoBox.animate({height: '0', opacity: '0'}, 1000);
+        infoBox.animate({margin: '0'}, 500);
     });
 
 });
@@ -125,6 +137,4 @@ document.getElementById('form').addEventListener('submit', (e) => {
             document.getElementById('tbody-mobile').innerHTML = displaySceduleMobile;
         })
 });
-
-
 
