@@ -198,11 +198,31 @@ form button {
 .close-box-icon {
     width: 30px;
     height: 30px;
+    margin-right: 10px;
+}
+
+@keyframes rotateCloseBtn {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(-180deg) }
+}
+
+@keyframes rotateCloseBtnActive {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(180deg) }
 }
 
 ion-icon {
     color: #34495e;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    margin-right: 20px;
+    animation: rotateCloseBtn 1s;
+    transform-origin: center;
+}
+
+ion-icon:hover {
+    animation: rotateCloseBtnActive 1s;
+    transform-origin: center;
 }
 
 .table {
