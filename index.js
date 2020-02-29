@@ -81,15 +81,18 @@ ppmSlider.oninput = function() {
 
 //Calc & display process on submit
 document.getElementById('form').addEventListener('submit', (e) => {
-    e.preventDefault()
-    document.getElementById('table-headers').classList.remove('hidden')
+    e.preventDefault();
+    document.getElementById('table-headers').classList.remove('hidden');
     const loanInputValue = parseInt(loanASlider.value);
     const expectedInputValue = parseInt(expectedSSlider.value);
+    const expectedInputValueMobile = parseInt(expectedSSliderMobile.value);
     const ppmInputValue = getPercentage(parseInt(ppmSlider.value));
 
     //Monthly repayments
     var monthlyRepayments = parseFloat(generateMRepayment(expectedInputValue, ppmInputValue)).toFixed(2);
     document.getElementById('monthly-repayment').innerText = '£' + monthlyRepayments;
+    var monthlyRepaymentsMobile = parseFloat(generateMRepayment(expectedInputValueMobile, ppmInputValue)).toFixed(2);
+    console.log(monthlyRepaymentsMobile);
     //Total borrowed
     var totalLoanRequested = feeRequiredCheck(loanInputValue);
     document.getElementById('total-borrowed').innerText = '£' + totalLoanRequested;
@@ -102,6 +105,8 @@ document.getElementById('form').addEventListener('submit', (e) => {
     //Total months
     var totalMonths = generateTotalMonths(totalLoanRequested, monthlyRepayments);
     document.getElementById('total-months').innerText = totalMonths;
+    var totalMonthsMobile = generateTotalMonths(totalLoanRequested, monthlyRepaymentsMobile);
+    console.log(totalMonthsMobile);
 
     let schedule = generateSchedule(monthlyRepayments, totalLoanRequested);
 
