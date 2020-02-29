@@ -16,6 +16,7 @@
         <div class="col-12 text-center mt-4" id="page-top">
             <h1 class="title">Finance Calculator</h1>
         </div>
+
         <div class="calc-box text-center mt-3 box-effect-css">
             <form id="form" class="p-3">
                 <h3>Loan Amount</h3>
@@ -54,6 +55,18 @@
                 <button id="calc-submit" type="submit" class="btn btn-primary p-2">Calculate</button>
             </form>
         </div>
+
+        <div class="col-12 mt-4 p-3 info-box ">
+            <div class="info-box-top d-flex justify-content-between">
+                <h3>How it works...</h3>
+                <div class="close-box-icon"><ion-icon name="close-circle-outline"></ion-icon></div>
+            </div>
+            <p>Should be able to borrow amount between £1 and £8000.<br>
+            If you borrow above 80% (£6400) then a fee of £500 is added to repayment amount.<br>
+            If you borrow above 90% (£7200) then a further £500 fee is added to repayment amount.<br>
+            An upfront admin fee of 5% of total borrowed amount is required.</p>
+        </div>
+
         <div class="col-12 mt-4 res-box box-effect-css">
             <div class="res-overview">
                 <div class="row monthly-repayments monthlyRepaymentsDesktop">
@@ -108,10 +121,13 @@
                 <tbody id="tbody-mobile"></tbody>
             </table>
         </div>
+
         <footer class="footer mt-4">
             <a class="btn btn-primary box-effect-css" href="#page-top" role="button">Back To Top</a>
         </footer>
     </div>
+
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
 </body>
 </html>
