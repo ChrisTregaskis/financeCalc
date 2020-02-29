@@ -53,6 +53,17 @@ $(document).ready(function() {
         percentagePaidMonthly.css('transition', 'color 0.4s, background-color 0.4s');
     });
 
+    $('.upfront-fee').click(function() {
+        // document.getElementById('info-box').classList.add('mt-4');
+        $('.info-box').animate({height: '200px', opacity: '1'}, 500);
+        $('.info-box').animate({margin: '30px auto'}, 500);
+    });
+
+    $('#close-box-icon').click(function () {
+        $('.info-box').animate({height: '0', opacity: '0'}, 1000);
+        $('.info-box').animate({margin: '0'}, 500);
+    });
+
 });
 
 //Calc Box Displays
@@ -125,6 +136,4 @@ document.getElementById('form').addEventListener('submit', (e) => {
             document.getElementById('tbody-mobile').innerHTML = displaySceduleMobile;
         })
 });
-
-
 
