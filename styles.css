@@ -216,11 +216,14 @@ ion-icon {
     margin-right: 20px;
     animation: rotateCloseBtn 1s;
     transform-origin: center;
+    transition: color 1s;
 }
 
 ion-icon:hover {
     animation: rotateCloseBtnActive 1s;
     transform-origin: center;
+    color: #ecf0f1;
+    transition: color 1s;
 }
 
 .table {
