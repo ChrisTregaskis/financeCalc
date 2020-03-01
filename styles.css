@@ -262,12 +262,12 @@ footer {
 
 /* - - -  media queries  - - - */
 
-.expectedSalaryMobile,
-.monthlyRepaymentsMobile,
-.totalMonthsMobile,
-.tableMobile {
-    display: none;
-}
+/*.expectedSalaryMobile,*/
+/*.monthlyRepaymentsMobile,*/
+/*.totalMonthsMobile,*/
+/*.tableMobile {*/
+/*    display: none;*/
+/*}*/
 
 @media screen and (max-width: 767px) {
     .calc-input-display {
@@ -285,12 +285,17 @@ footer {
         display: table;
     }
 
-    .expectedSalaryDesktop,
-    .monthlyRepaymentsDesktop,
-    .totalMonthsDesktop,
-    .tableDesktop {
-        display: none;
+    .expectedSalaryResponsive {
+        display: flex;
+        flex-direction: column-reverse;
     }
+
+    /*.expectedSalaryDesktop,*/
+    /*.monthlyRepaymentsDesktop,*/
+    /*.totalMonthsDesktop,*/
+    /*.tableDesktop {*/
+    /*    display: none;*/
+    /*}*/
 }
 
 
