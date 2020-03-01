@@ -88,6 +88,24 @@ ppmSlider.oninput = function() {
     ppmOutput.innerText = this.value;
 };
 
+//Manage custom inputs
+document.getElementById('customLABtn').addEventListener('click', function() {
+    let customInputLA = document.getElementById('customLAInput').value;
+    loanASlider.value = customInputLA;
+
+    if(customInputLA > 8000 || customInputLA < 1 || '') {
+        document.getElementById('errorLA').innerHTML = '<p>Error! Please select an amount equal or below £8000</p>';
+    } else if (customInputLA <= 8000){
+        document.getElementById('errorLA').innerHTML = '';
+        loanAOutput.innerText = loanASlider.value;
+        loanASlider.oninput = function () {
+            loanAOutput.innerText = this.value;
+        }
+    }
+});
+
+
+
 //Calc & display results process on submit
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -107,10 +125,10 @@ document.getElementById('form').addEventListener('submit', (e) => {
     let totalLoanRequested = feeRequiredCheck(loanInputValue);
     document.getElementById('total-borrowed').innerText = '£' + totalLoanRequested;
 
-    let upFrontAdminFee = upFrontFee(totalLoanRequested);
+    let upFrontAdminFee = parseFloat(upFrontFee(totalLoanRequested)).toFixed(2);
     document.getElementById('upfront-admin-fee').innerText = '£' + upFrontAdminFee;
 
-    let totalFee = parseFloat(generateTotalFee(loanInputValue, upFrontAdminFee)).toFixed(0);
+    let totalFee = parseFloat(generateTotalFee(loanInputValue, upFrontAdminFee)).toFixed(2);
     document.getElementById('total-fees').innerText = '£' + totalFee;
 
     let totalMonths = generateTotalMonths(totalLoanRequested, monthlyRepayments);
