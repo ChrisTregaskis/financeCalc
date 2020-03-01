@@ -186,7 +186,6 @@ document.getElementById('form').addEventListener('submit', (e) => {
     let upFrontAdminFee = parseInt(upFrontFee(totalLoanRequested));
     document.getElementById('upfront-admin-fee').innerText = '£' + upFrontAdminFee;
 
-    console.log(loanInputValue, upFrontAdminFee);
     let totalFee = parseInt(generateTotalFee(loanInputValue, upFrontAdminFee));
     document.getElementById('total-fees').innerText = '£' + totalFee;
 
