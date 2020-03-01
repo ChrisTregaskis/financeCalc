@@ -6,7 +6,8 @@ const expectedSSliderMobile = document.getElementById('expected-salary-slider-mo
 const expectedSOutputMobile = document.getElementById('expected-salary-text-mobile');
 const ppmSlider = document.getElementById('ppm-slider');
 const ppmOutput = document.getElementById('ppm-text');
-var error = false;
+let  errorLA = false;
+let  errorES = false;
 
 $(document).ready(function() {
     let loanAmount = $('#loanAmount');
@@ -26,7 +27,7 @@ $(document).ready(function() {
         loanAmount.css('transition', 'color 0.4s, background-color 0.4s');
     });
 
-    $('#expected-salary-slider').hover(function(){
+    $('#expected-salary-slider, #expectedSalary').hover(function(){
         expectedSalary.css('background-color', '#3498db');
         expectedSalary.css('color', '#ecf0f1');
         expectedSalary.css('transition', 'color 0.4s, background-color 0.4s');
@@ -65,7 +66,7 @@ $(document).ready(function() {
     });
 
     $('#customLABtn').click(function () {
-        if (error === false) {
+        if (errorLA === false) {
             $('.custom-la-input-box').animate({
                 height: '0',
                 opacity: '0',
@@ -73,6 +74,25 @@ $(document).ready(function() {
             }, 500);
         }
     });
+
+    $('#expectedSalary').click(function () {
+        $('.custom-es-input-box').animate({
+            height: '50px',
+            opacity: '1',
+            margin: '10px auto'
+        }, 500);
+    });
+
+    $('#customESBtn').click(function () {
+        if (errorES === false) {
+            $('.custom-es-input-box').animate({
+                height: '0',
+                opacity: '0',
+                margin: '0'
+            }, 500);
+        }
+    });
+
 
     $('.upfront-fee').click(function() {
         infoBox.animate({height: infoBoxScrollHeight, opacity: '1'}, 500);
@@ -114,13 +134,30 @@ document.getElementById('customLABtn').addEventListener('click', function() {
 
     if(customInputLA > 8000 || customInputLA < 1 || '') {
         document.getElementById('errorLA').innerHTML = '<p>Error! Please select an amount equal or below £8000</p>';
-        error = true;
+        errorLA = true;
     } else if (customInputLA <= 8000){
-        error = false;
+        errorLA = false;
         document.getElementById('errorLA').innerHTML = '';
         loanAOutput.innerText = loanASlider.value;
         loanASlider.oninput = function () {
             loanAOutput.innerText = this.value;
+        }
+    }
+});
+
+document.getElementById('customESBtn').addEventListener('click', function() {
+    let customInputES = document.getElementById('customESInput').value;
+    expectedSSlider.value = customInputES;
+
+    if(customInputES > 80000 || customInputES < 17000 || '') {
+        document.getElementById('errorES').innerHTML = '<p>Error! Please select an estimated salary between £17k and £80k</p>';
+        errorES = true;
+    } else if (customInputES <= 80000){
+        errorES = false;
+        document.getElementById('errorES').innerHTML = '';
+        expectedSOutput.innerText = expectedSSlider.value;
+        expectedSSlider.oninput = function() {
+            expectedSOutput.innerText = this.value;
         }
     }
 });
