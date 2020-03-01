@@ -92,6 +92,7 @@ body {
     border-radius: 10px;
     background-color: transparent;
     transition: color 0.6s, background-color 0.6s;
+    cursor: pointer;
 }
 
 .calc-input-display p {
@@ -99,10 +100,16 @@ body {
 }
 
 .custom-la-input-box {
-    margin: 10px auto;
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
 }
 
-.customer-input-box {
+#errorLA p {
+    color: #e74c3c;
+}
+
+.custom-input-box {
     background-color: transparent;
     border: 1px solid #1B91A9;
     border-radius: 10px;
