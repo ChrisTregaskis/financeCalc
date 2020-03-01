@@ -2,8 +2,6 @@ const loanASlider = document.getElementById('loan-amount-slider');
 const loanAOutput = document.getElementById('loan-amount-text');
 const expectedSSlider = document.getElementById('expected-salary-slider');
 const expectedSOutput = document.getElementById('expected-salary-text');
-// const expectedSSliderMobile = document.getElementById('expected-salary-slider-mobile');
-// const expectedSOutputMobile = document.getElementById('expected-salary-text-mobile');
 const ppmSlider = document.getElementById('ppm-slider');
 const ppmOutput = document.getElementById('ppm-text');
 let  errorLA = false;
@@ -12,7 +10,6 @@ let  errorES = false;
 $(document).ready(function() {
     let loanAmount = $('#loanAmount');
     let expectedSalary = $('#expectedSalary');
-    // let expectedSalaryMobile = $('#expectedSalaryMobile');
     let percentagePaidMonthly = $('#percentagePaidMonthly');
     let infoBoxScrollHeight = document.getElementById('info-box').scrollHeight;
     let infoBox = $('.info-box');
@@ -36,16 +33,6 @@ $(document).ready(function() {
         expectedSalary.css('color', '#000');
         expectedSalary.css('transition', 'color 0.4s, background-color 0.4s');
     });
-
-    // $('#expected-salary-slider-mobile').hover(function(){
-    //     expectedSalaryMobile.css('background-color', '#3498db');
-    //     expectedSalaryMobile.css('color', '#ecf0f1');
-    //     expectedSalaryMobile.css('transition', 'color 0.6s, background-color 0.6s');
-    // }, function () {
-        // expectedSalaryMobile.css('background-color', 'transparent');
-        // expectedSalaryMobile.css('color', '#000');
-        // expectedSalaryMobile.css('transition', 'color 0.6s, background-color 0.6s');
-    // });
 
     $('#ppm-slider').hover(function(){
         percentagePaidMonthly.css('background-color', '#3498db');
@@ -93,7 +80,6 @@ $(document).ready(function() {
         }
     });
 
-
     $('.upfront-fee').click(function() {
         infoBox.animate({height: infoBoxScrollHeight, opacity: '1'}, 500);
         infoBox.animate({margin: '30px auto'}, 500);
@@ -116,11 +102,6 @@ expectedSOutput.innerText = expectedSSlider.value;
 expectedSSlider.oninput = function() {
     expectedSOutput.innerText = this.value;
 };
-
-// expectedSOutputMobile.innerText = expectedSSliderMobile.value;
-// expectedSSliderMobile.oninput = function() {
-//     expectedSOutputMobile.innerText = this.value;
-// };
 
 ppmOutput.innerText = ppmSlider.value;
 ppmSlider.oninput = function() {
@@ -162,23 +143,16 @@ document.getElementById('customESBtn').addEventListener('click', function() {
     }
 });
 
-
-
 //Calc & display results process on submit
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
     document.getElementById('table-headers').classList.remove('hidden');
-    // document.getElementById('table-headers-mobile').classList.remove('hidden');
     const loanInputValue = parseInt(loanASlider.value);
     const expectedInputValue = parseInt(expectedSSlider.value);
-    // const expectedInputValueMobile = parseInt(expectedSSliderMobile.value);
     const ppmInputValue = getPercentage(parseInt(ppmSlider.value));
 
     let monthlyRepayments = parseFloat(generateMRepayment(expectedInputValue, ppmInputValue)).toFixed(2);
     document.getElementById('monthly-repayment').innerText = '£' + monthlyRepayments;
-
-    // let monthlyRepaymentsMobile = parseFloat(generateMRepayment(expectedInputValueMobile, ppmInputValue)).toFixed(2);
-    // document.getElementById('monthly-repayment-mobile').innerText = '£' + monthlyRepaymentsMobile;
 
     let totalLoanRequested = feeRequiredCheck(loanInputValue);
     document.getElementById('total-borrowed').innerText = '£' + totalLoanRequested;
@@ -192,12 +166,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
     let totalMonths = generateTotalMonths(totalLoanRequested, monthlyRepayments);
     document.getElementById('total-months').innerText = totalMonths;
 
-    // let totalMonthsMobile = generateTotalMonths(totalLoanRequested, monthlyRepaymentsMobile);
-    // document.getElementById('total-months-mobile').innerText = totalMonthsMobile;
-
     let schedule = generateSchedule(monthlyRepayments, totalLoanRequested);
-
-    // let scheduleMobile = generateSchedule(monthlyRepaymentsMobile, totalLoanRequested);
 
     fetch('hand.hbs')
         .then((handData) => {
@@ -209,8 +178,6 @@ document.getElementById('form').addEventListener('submit', (e) => {
             let displaySchedule = hbsTemplate(schedule);
             document.getElementById('tbody').innerHTML = displaySchedule;
 
-            // let displaySceduleMobile = hbsTemplate(scheduleMobile);
-            // document.getElementById('tbody-mobile').innerHTML = displaySceduleMobile;
         })
 });
 
