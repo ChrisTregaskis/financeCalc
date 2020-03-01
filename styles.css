@@ -94,18 +94,38 @@ body {
     transition: color 0.6s, background-color 0.6s;
 }
 
-.calc-input-display:hover {
-    background-color: #3498db;
-    color: #ecf0f1;
-    transition: color 0.6s, background-color 0.6s;
+#loanAmount,
+#expectedSalary {
+    cursor: pointer;
 }
 
 .calc-input-display p {
     margin: 10px auto;
 }
 
-form button {
-    font-size: 6rem;
+.custom-la-input-box,
+.custom-es-input-box {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+}
+
+#errorLA p,
+#errorES p {
+    color: #e74c3c;
+}
+
+.custom-input-box {
+    background-color: transparent;
+    border: 1px solid #1B91A9;
+    border-radius: 10px;
+    padding: 9px;
+    width: 130px;
+    text-align: center;
+}
+
+#calc-submit {
+    font-size: 1.5rem;
     box-shadow: 0 30px 42px -12px #222;
     margin: 40px auto;
 }
@@ -242,12 +262,12 @@ footer {
 
 /* - - -  media queries  - - - */
 
-.expectedSalaryMobile,
-.monthlyRepaymentsMobile,
-.totalMonthsMobile,
-.tableMobile {
-    display: none;
-}
+/*.expectedSalaryMobile,*/
+/*.monthlyRepaymentsMobile,*/
+/*.totalMonthsMobile,*/
+/*.tableMobile {*/
+/*    display: none;*/
+/*}*/
 
 @media screen and (max-width: 767px) {
     .calc-input-display {
@@ -265,12 +285,17 @@ footer {
         display: table;
     }
 
-    .expectedSalaryDesktop,
-    .monthlyRepaymentsDesktop,
-    .totalMonthsDesktop,
-    .tableDesktop {
-        display: none;
+    .expectedSalaryResponsive {
+        display: flex;
+        flex-direction: column-reverse;
     }
+
+    /*.expectedSalaryDesktop,*/
+    /*.monthlyRepaymentsDesktop,*/
+    /*.totalMonthsDesktop,*/
+    /*.tableDesktop {*/
+    /*    display: none;*/
+    /*}*/
 }
 
 
