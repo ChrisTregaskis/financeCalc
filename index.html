@@ -34,19 +34,19 @@
                     <button type="button" class="btn btn-info" id="customLABtn">Apply</button>
                 </div>
                 <h3>Expected Salary</h3>
-                <div class="row justify-content-md-center">
+                <div class="row justify-content-md-center expectedSalaryResponsive">
                     <div class="col-md-2 calc-input-display expectedSalaryDesktop" id="expectedSalary">
                         <p>£<span id="expected-salary-text"></span></p>
                     </div>
                     <div class="col-md-9 expectedSalaryDesktop">
                         <input type="range" min="17000" max="80000" step="500" value="25000" class="slider" id="expected-salary-slider"/>
                     </div>
-                    <div class="col-md-9 expectedSalaryMobile">
-                        <input type="range" min="17000" max="80000" step="500" value="25000" class="slider" id="expected-salary-slider-mobile"/>
-                    </div>
-                    <div class="col-md-2 calc-input-display expectedSalaryMobile" id="expectedSalaryMobile">
-                        <p>£<span id="expected-salary-text-mobile"></span></p>
-                    </div>
+<!--                    <div class="col-md-9 expectedSalaryMobile">-->
+<!--                        <input type="range" min="17000" max="80000" step="500" value="25000" class="slider" id="expected-salary-slider-mobile"/>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2 calc-input-display expectedSalaryMobile" id="expectedSalaryMobile">-->
+<!--                        <p>£<span id="expected-salary-text-mobile"></span></p>-->
+<!--                    </div>-->
                 </div>
                 <div id="errorES"></div>
                 <div class="col justify-content-md-center custom-es-input-box" id="custom-es-input-box">
@@ -86,10 +86,10 @@
                     <h3 class="col-12 mon-repayment-value"><span id="monthly-repayment">&zwnj;</span></h3>
                     <h5 class="col-12 mon-repayment-text">Monthly Repayment Available</h5>
                 </div>
-                <div class="row monthly-repayments monthlyRepaymentsMobile">
-                    <h3 class="col-12 mon-repayment-value"><span id="monthly-repayment-mobile">&zwnj;</span></h3>
-                    <h5 class="col-12 mon-repayment-text">Monthly Repayment Available</h5>
-                </div>
+<!--                <div class="row monthly-repayments monthlyRepaymentsMobile">-->
+<!--                    <h3 class="col-12 mon-repayment-value"><span id="monthly-repayment-mobile">&zwnj;</span></h3>-->
+<!--                    <h5 class="col-12 mon-repayment-text">Monthly Repayment Available</h5>-->
+<!--                </div>-->
                 <div class="row total-sums">
                     <div class="col-md-3 total-item">
                         <h5 id="total-borrowed">&zwnj;</h5>
@@ -107,10 +107,10 @@
                         <h5 id="total-months">&zwnj;</h5>
                         <p>Total Months</p>
                     </div>
-                    <div class="col-md-3 total-item totalMonthsMobile">
-                        <h5 id="total-months-mobile">&zwnj;</h5>
-                        <p>Total Months</p>
-                    </div>
+<!--                    <div class="col-md-3 total-item totalMonthsMobile">-->
+<!--                        <h5 id="total-months-mobile">&zwnj;</h5>-->
+<!--                        <p>Total Months</p>-->
+<!--                    </div>-->
                 </div>
             </div>
             <table class="table table-striped table-hover tableDesktop">
@@ -123,16 +123,16 @@
                 </thead>
                 <tbody id="tbody"></tbody>
             </table>
-            <table class="table table-striped table-hover tableMobile">
-                <thead class="hidden" id="table-headers-mobile">
-                <tr>
-                    <th scope="col">Month</th>
-                    <th scope="col">Balance</th>
-                    <th scope="col">Paid This Month</th>
-                </tr>
-                </thead>
-                <tbody id="tbody-mobile"></tbody>
-            </table>
+<!--            <table class="table table-striped table-hover tableMobile">-->
+<!--                <thead class="hidden" id="table-headers-mobile">-->
+<!--                <tr>-->
+<!--                    <th scope="col">Month</th>-->
+<!--                    <th scope="col">Balance</th>-->
+<!--                    <th scope="col">Paid This Month</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody id="tbody-mobile"></tbody>-->
+<!--            </table>-->
         </div>
 
         <footer class="footer mt-4">
