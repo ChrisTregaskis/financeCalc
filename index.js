@@ -6,6 +6,7 @@ const expectedSSliderMobile = document.getElementById('expected-salary-slider-mo
 const expectedSOutputMobile = document.getElementById('expected-salary-text-mobile');
 const ppmSlider = document.getElementById('ppm-slider');
 const ppmOutput = document.getElementById('ppm-text');
+var error = false;
 
 $(document).ready(function() {
     let loanAmount = $('#loanAmount');
@@ -15,7 +16,7 @@ $(document).ready(function() {
     let infoBoxScrollHeight = document.getElementById('info-box').scrollHeight;
     let infoBox = $('.info-box');
 
-    $('#loan-amount-slider').hover(function(){
+    $('#loan-amount-slider, #loanAmount').hover(function(){
         loanAmount.css('background-color', '#3498db');
         loanAmount.css('color', '#ecf0f1');
         loanAmount.css('transition', 'color 0.4s, background-color 0.4s');
@@ -53,6 +54,24 @@ $(document).ready(function() {
         percentagePaidMonthly.css('background-color', 'transparent');
         percentagePaidMonthly.css('color', '#000');
         percentagePaidMonthly.css('transition', 'color 0.4s, background-color 0.4s');
+    });
+
+    $('#loanAmount').click(function () {
+        $('.custom-la-input-box').animate({
+            height: '50px',
+            opacity: '1',
+            margin: '10px auto'
+        }, 500);
+    });
+
+    $('#customLABtn').click(function () {
+        if (error === false) {
+            $('.custom-la-input-box').animate({
+                height: '0',
+                opacity: '0',
+                margin: '0'
+            }, 500);
+        }
     });
 
     $('.upfront-fee').click(function() {
@@ -95,7 +114,9 @@ document.getElementById('customLABtn').addEventListener('click', function() {
 
     if(customInputLA > 8000 || customInputLA < 1 || '') {
         document.getElementById('errorLA').innerHTML = '<p>Error! Please select an amount equal or below £8000</p>';
+        error = true;
     } else if (customInputLA <= 8000){
+        error = false;
         document.getElementById('errorLA').innerHTML = '';
         loanAOutput.innerText = loanASlider.value;
         loanASlider.oninput = function () {
