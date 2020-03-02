@@ -15,6 +15,34 @@ body {
     color: #ecf0f1;
     font-size: 4rem;
     letter-spacing: 2.5px;
+    display: inline-block;
+}
+
+@keyframes rotateQBtn {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(-360deg) }
+}
+
+@keyframes rotateQBtnActive {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(360deg) }
+}
+
+ion-icon {
+    color: #ecf0f1;
+    font-size: 3rem;
+    cursor: pointer;
+    margin-right: 20px;
+    animation: rotateQBtn 1s;
+    transform-origin: center;
+    transition: color 1s;
+}
+
+ion-icon:hover {
+    animation: rotateQBtnActive 1s;
+    transform-origin: center;
+    color: #e74c3c;
+    transition: color 1s;
 }
 
 .box-effect-css {
@@ -229,7 +257,7 @@ body {
     to { transform: rotate(180deg) }
 }
 
-ion-icon {
+.close-box-icon ion-icon {
     color: #34495e;
     font-size: 2.5rem;
     cursor: pointer;
@@ -239,7 +267,7 @@ ion-icon {
     transition: color 1s;
 }
 
-ion-icon:hover {
+.close-box-icon ion-icon:hover {
     animation: rotateCloseBtnActive 1s;
     transform-origin: center;
     color: #ecf0f1;
