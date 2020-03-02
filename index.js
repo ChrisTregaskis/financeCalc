@@ -80,6 +80,11 @@ $(document).ready(function() {
         }
     });
 
+    $('#question-mark').click(function() {
+        infoBox.animate({height: infoBoxScrollHeight, opacity: '1'}, 500);
+        infoBox.animate({margin: '30px auto'}, 500);
+    });
+
     $('.upfront-fee').click(function() {
         infoBox.animate({height: infoBoxScrollHeight, opacity: '1'}, 500);
         infoBox.animate({margin: '30px auto'}, 500);
