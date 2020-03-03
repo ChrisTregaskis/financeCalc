@@ -14,7 +14,8 @@ $(document).ready(function() {
     let infoBoxScrollHeight = document.getElementById('info-box').scrollHeight;
     let infoBox = $('.info-box');
 
-    $('#loan-amount-slider, #loanAmount').hover(function(){
+    //When hovering/using range sliders, change colours of displayed values
+    $('#loan-amount-slider').hover(function() {
         loanAmount.css('background-color', '#3498db');
         loanAmount.css('color', '#ecf0f1');
         loanAmount.css('transition', 'color 0.4s, background-color 0.4s');
@@ -24,7 +25,7 @@ $(document).ready(function() {
         loanAmount.css('transition', 'color 0.4s, background-color 0.4s');
     });
 
-    $('#expected-salary-slider, #expectedSalary').hover(function(){
+    $('#expected-salary-slider').hover(function() {
         expectedSalary.css('background-color', '#3498db');
         expectedSalary.css('color', '#ecf0f1');
         expectedSalary.css('transition', 'color 0.4s, background-color 0.4s');
@@ -34,7 +35,7 @@ $(document).ready(function() {
         expectedSalary.css('transition', 'color 0.4s, background-color 0.4s');
     });
 
-    $('#ppm-slider').hover(function(){
+    $('#ppm-slider').hover(function() {
         percentagePaidMonthly.css('background-color', '#3498db');
         percentagePaidMonthly.css('color', '#ecf0f1');
         percentagePaidMonthly.css('transition', 'color 0.4s, background-color 0.4s');
@@ -44,6 +45,31 @@ $(document).ready(function() {
         percentagePaidMonthly.css('transition', 'color 0.4s, background-color 0.4s');
     });
 
+    $('#loanAmount').hover(function() {
+        loanAmount.css('background-color', '#e67e22');
+        loanAmount.css('border-color', 'transparent');
+        loanAmount.css('color', '#ecf0f1');
+        loanAmount.css('transition', 'color 0.4s, background-color 0.4s, border-color 0.4s');
+    }, function () {
+        loanAmount.css('background-color', 'transparent');
+        loanAmount.css('border-color', '#3498db');
+        loanAmount.css('color', '#000');
+        loanAmount.css('transition', 'color 0.4s, background-color 0.4s, border-color 0.4s');
+    });
+
+    $('#expectedSalary').hover(function() {
+        expectedSalary.css('background-color', '#e67e22');
+        expectedSalary.css('border-color', 'transparent');
+        expectedSalary.css('color', '#ecf0f1');
+        expectedSalary.css('transition', 'color 0.4s, background-color 0.4s, border-color 0.4s');
+    }, function () {
+        expectedSalary.css('background-color', 'transparent');
+        expectedSalary.css('border-color', '#3498db');
+        expectedSalary.css('color', '#000');
+        expectedSalary.css('transition', 'color 0.4s, background-color 0.4s, border-color 0.4s');
+    });
+
+    //Display custom input value boxes
     $('#loanAmount').click(function () {
         $('.custom-la-input-box').animate({
             height: '50px',
@@ -60,6 +86,14 @@ $(document).ready(function() {
                 margin: '0'
             }, 500);
         }
+    });
+
+    $('#customLABtnCancel').click(function () {
+        $('.custom-la-input-box').animate({
+            height: '0',
+            opacity: '0',
+            margin: '0'
+        }, 500)
     });
 
     $('#expectedSalary').click(function () {
@@ -80,6 +114,15 @@ $(document).ready(function() {
         }
     });
 
+    $('#customESBtnCancel').click(function () {
+        $('.custom-es-input-box').animate({
+            height: '0',
+            opacity: '0',
+            margin: '0'
+        }, 500)
+    });
+
+    //Display info-box
     $('#question-mark').click(function() {
         infoBox.animate({height: infoBoxScrollHeight, opacity: '1'}, 500);
         infoBox.animate({margin: '30px auto'}, 500);
@@ -97,7 +140,7 @@ $(document).ready(function() {
 
 });
 
-//Calc Box Displays
+//Calc box display values
 loanAOutput.innerText = loanASlider.value;
 loanASlider.oninput = function() {
     loanAOutput.innerText = this.value;
