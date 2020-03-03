@@ -157,16 +157,16 @@ document.getElementById('form').addEventListener('submit', (e) => {
     const ppmInputValue = getPercentage(parseInt(ppmSlider.value));
 
     let monthlyRepayments = parseFloat(generateMRepayment(expectedInputValue, ppmInputValue)).toFixed(2);
-    document.getElementById('monthly-repayment').innerText = '£' + monthlyRepayments;
+    document.getElementById('monthly-repayment').innerText = monthlyRepayments;
 
     let totalLoanRequested = feeRequiredCheck(loanInputValue);
-    document.getElementById('total-borrowed').innerText = '£' + totalLoanRequested;
+    document.getElementById('total-borrowed').innerText = totalLoanRequested;
 
     let upFrontAdminFee = parseInt(upFrontFee(totalLoanRequested));
-    document.getElementById('upfront-admin-fee').innerText = '£' + upFrontAdminFee;
+    document.getElementById('upfront-admin-fee').innerText = upFrontAdminFee;
 
     let totalFee = parseInt(generateTotalFee(loanInputValue, upFrontAdminFee));
-    document.getElementById('total-fees').innerText = '£' + totalFee;
+    document.getElementById('total-fees').innerText = totalFee;
 
     let totalMonths = generateTotalMonths(totalLoanRequested, monthlyRepayments);
     document.getElementById('total-months').innerText = totalMonths;
@@ -183,6 +183,20 @@ document.getElementById('form').addEventListener('submit', (e) => {
             let displaySchedule = hbsTemplate(schedule);
             document.getElementById('tbody').innerHTML = displaySchedule;
 
-        })
+        });
+
+
+    $('.count').each(function () {
+        $(this).prop('Counter', 0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 1000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+
 });
 
