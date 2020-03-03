@@ -14,7 +14,7 @@ $(document).ready(function() {
     let infoBoxScrollHeight = document.getElementById('info-box').scrollHeight;
     let infoBox = $('.info-box');
 
-    $('#loan-amount-slider, #loanAmount').hover(function(){
+    $('#loan-amount-slider').hover(function() {
         loanAmount.css('background-color', '#3498db');
         loanAmount.css('color', '#ecf0f1');
         loanAmount.css('transition', 'color 0.4s, background-color 0.4s');
@@ -24,7 +24,7 @@ $(document).ready(function() {
         loanAmount.css('transition', 'color 0.4s, background-color 0.4s');
     });
 
-    $('#expected-salary-slider, #expectedSalary').hover(function(){
+    $('#expected-salary-slider').hover(function() {
         expectedSalary.css('background-color', '#3498db');
         expectedSalary.css('color', '#ecf0f1');
         expectedSalary.css('transition', 'color 0.4s, background-color 0.4s');
@@ -34,7 +34,7 @@ $(document).ready(function() {
         expectedSalary.css('transition', 'color 0.4s, background-color 0.4s');
     });
 
-    $('#ppm-slider').hover(function(){
+    $('#ppm-slider').hover(function() {
         percentagePaidMonthly.css('background-color', '#3498db');
         percentagePaidMonthly.css('color', '#ecf0f1');
         percentagePaidMonthly.css('transition', 'color 0.4s, background-color 0.4s');
@@ -44,12 +44,37 @@ $(document).ready(function() {
         percentagePaidMonthly.css('transition', 'color 0.4s, background-color 0.4s');
     });
 
+    $('#loanAmount').hover(function() {
+        loanAmount.css('background-color', '#e67e22');
+        loanAmount.css('border-color', 'transparent');
+        loanAmount.css('color', '#ecf0f1');
+        loanAmount.css('transition', 'color 0.4s, background-color 0.4s, border-color 0.4s');
+    }, function () {
+        loanAmount.css('background-color', 'transparent');
+        loanAmount.css('border-color', '#3498db');
+        loanAmount.css('color', '#000');
+        loanAmount.css('transition', 'color 0.4s, background-color 0.4s, border-color 0.4s');
+    });
+
+    $('#expectedSalary').hover(function() {
+        expectedSalary.css('background-color', '#e67e22');
+        expectedSalary.css('border-color', 'transparent');
+        expectedSalary.css('color', '#ecf0f1');
+        expectedSalary.css('transition', 'color 0.4s, background-color 0.4s, border-color 0.4s');
+    }, function () {
+        expectedSalary.css('background-color', 'transparent');
+        expectedSalary.css('border-color', '#3498db');
+        expectedSalary.css('color', '#000');
+        expectedSalary.css('transition', 'color 0.4s, background-color 0.4s, border-color 0.4s');
+    });
+
     $('#loanAmount').click(function () {
         $('.custom-la-input-box').animate({
             height: '50px',
             opacity: '1',
             margin: '10px auto'
         }, 500);
+
     });
 
     $('#customLABtn').click(function () {
