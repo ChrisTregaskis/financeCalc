@@ -138,6 +138,10 @@ $(document).ready(function() {
         infoBox.animate({margin: '0'}, 500);
     });
 
+    //Change container to container-fluid depending on screen width
+    checkSize();
+    $(window).resize(checkSize);
+
 });
 
 //Calc box display values
