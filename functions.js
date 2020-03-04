@@ -81,6 +81,17 @@ function generateSchedule(monthlyPayment, requiredLoanRequested) {
     return scheduleObject
 }
 
+//Resize container when device width less than 767px
+function checkSize() {
+    let container = document.getElementById('container')
+    if ($(".calc-input-display").css('width') === '130px') {
+        container.classList.add('container-fluid');
+        container.classList.remove('container');
+    } else {
+        container.classList.add('container');
+        container.classList.remove('container-fluid');
+    }
+}
 
 
 
