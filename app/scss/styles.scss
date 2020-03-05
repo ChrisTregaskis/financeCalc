@@ -303,6 +303,15 @@ ion-icon:hover {
   word-wrap: break-word;
 }
 
+#table-month-12,
+#table-month-24,
+#table-month-36,
+#table-month-48,
+#table-month-60,
+#table-month-72 {
+  background-color: #27ae60;
+}
+
 footer {
   display: flex;
   justify-content: center;
