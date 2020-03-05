@@ -182,8 +182,8 @@ document.getElementById('customESBtn').addEventListener('click', function() {
     let customInputES = document.getElementById('customESInput').value;
     expectedSSlider.value = customInputES;
 
-    if(customInputES > 120000 || customInputES < 12000 || '') {
-        document.getElementById('errorES').innerHTML = '<p>Error! Please select an estimated salary between £12k and £120k</p>';
+    if(customInputES > 120000 || customInputES < 1 || '') {
+        document.getElementById('errorES').innerHTML = '<p>Error! Please select an estimated salary between £1 and £120k</p>';
         errorES = true;
     } else if (customInputES <= 120000){
         errorES = false;
