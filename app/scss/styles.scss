@@ -314,7 +314,7 @@ footer {
 @media screen and (max-width: 767px) {
 
   .calc-input-display {
-    width: 130px;
+    width: 130px; //JS function 'checkSize' listening for this.
     margin: 20px auto;
   }
 
